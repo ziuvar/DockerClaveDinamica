@@ -1,0 +1,16 @@
+services:
+  server:
+    image: ziuvarruiz/clavedinamicadocker-server:latest
+    ports:
+      - "0.0.0.0:8080:8080"
+    container_name: clavedinamicadocker-server
+    tty: true
+    stdin_open: true
+
+  client:
+    image: ziuvarruiz/clavedinamicadocker-client:latest
+    container_name: clavedinamicadocker-client
+    depends_on:
+      - server
+    tty: true
+    stdin_open: true
